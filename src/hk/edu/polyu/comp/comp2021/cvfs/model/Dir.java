@@ -70,6 +70,8 @@ public class Dir extends Files{
     public void rename(String old, String ne) throws Exception {
         if (!getCh().containsKey(old))
             throw new Exception("file: " + old + " is not exist");
+        if(getCh().containsKey(ne))
+            throw new Exception("file: " + ne + " is already exist");
         Files v = getCh().get(old);
         getCh().remove(old);
         v.setName(ne);
